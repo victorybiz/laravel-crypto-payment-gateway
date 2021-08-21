@@ -1,0 +1,222 @@
+===============================================================================
+== Version 2.2.2 (October 2020)
+===============================================================================
+
+- Support Bitcoin Cash BCHN - https://bitcoincashnode.org
+
+
+
+
+===============================================================================
+== Version 2.2.1 (June 2020)
+===============================================================================
+
+- Support GoUrl IPN test data  
+
+
+
+
+===============================================================================
+== Version 2.2.0 (May 2020)
+===============================================================================
+
+- Several new enhancements. Mandatory update.  
+
+
+
+
+===============================================================================
+== Version 2.1.7 (January 2020)
+===============================================================================
+
+- Several new enhancements. Security updates!
+
+- Update Bootstrap 4.4.1, jQuery 3.4.1, FontAwesome 5.12
+
+- Added Albanian Language (Thanks to Meso J.)
+
+- Added Czech Language (Thanks to Kneebo T.)
+
+- Added Estonian Language (Thanks to Aimar)
+
+- Added Finnish Language (Thanks to Rami V.)
+
+- Added Greek Language (Thanks to Charalampos P, Bay)
+
+- Added Serbian Language (Thanks to Nikola L.)
+
+- Added Slovenian Language (Thanks to Grega J.)
+
+- Added Swedish Language (Thanks to Jack)
+
+
+
+===============================================================================
+== Version 2.1.6 (February 2019)
+===============================================================================
+
+- Added support currencyconverterapi.com keys
+
+
+
+===============================================================================
+== Version 2.1.5 (November 2018)
+===============================================================================
+
+- Added Bitcoin SV (BSV/BCHSV)
+
+
+
+===============================================================================
+== Version 2.1.4 (August 2018)   
+===============================================================================
+
+- Update live exchange rates websites
+
+
+
+===============================================================================
+== Version 2.1.3 (April 2018)    
+===============================================================================
+
+- Several new enhancements. Recommended Update
+
+
+
+===============================================================================
+== Version 2.1.2 (April 2018)    
+===============================================================================
+
+- Several new enhancements.
+
+
+
+===============================================================================
+== Version 2.1.1 (April 2018)    
+===============================================================================
+
+- Isolate Bootstrap CSS to a particular class 'bootstrapiso' to avoid css conflicts with your site css style
+
+
+
+===============================================================================
+== Version 2.1 (April 2018)    
+===============================================================================
+
+- Several new enhancements
+
+
+
+===============================================================================
+== Version 2.0 (February 2018)    
+===============================================================================
+
+- Added mobile friendly payment box
+- White Label Product - Bitcoin Payments with your own logo and all payment requests through your server
+- Generate PHP Custom Payment Box Code Online - https://gourl.io/lib/examples/example_customize_box.php
+- JSON/Bootstrap4 supports
+
+
+
+===============================================================================
+== Version 1.8.3 (December 2017)    
+===============================================================================
+
+- Added Universal Currency [UNIT] (voting winner https://gourl.io/coin-voting.html#voting)
+
+
+
+===============================================================================
+== Version 1.8.2 (September 2017)    
+===============================================================================
+
+- Updated Google Currency Converter Url
+
+
+
+===============================================================================
+== Version 1.8.1 (August 2017)
+===============================================================================
+
+- Added Bitcoin Cash (BCH/BCC)
+
+
+
+===============================================================================
+== Version 1.8 (May 2017)  
+===============================================================================
+
+- Get bitcoin/altcoin payment box values from gourl.io in JSON format. 
+JSON data will allow you to easily customise your bitcoin payment boxes. 
+For example, you can display payment amount and  bitcoin payment address with your 
+own text, you can also accept payments in android/windows and other applications.
+Instruction - https://gourl.io/bitcoin-payment-gateway-api.html#p8
+
+
+===============================================================================
+== Version 1.7.11 (February 2017) 
+===============================================================================
+
+- Added Turkish Language (Thanks to Gezgin)
+
+
+
+===============================================================================
+== Version 1.7.10 (January 2017)
+===============================================================================
+
+- Added Italian Language (Thanks to Lorenzo)
+
+
+
+===============================================================================
+== Version 1.7.8 (November 2016)
+===============================================================================
+
+- Added Japanese Language (Thanks to Takiko)
+
+- Added Indonesian Language (Thanks to Tejo)
+
+- Added Polish Language (Thanks to Kacper)
+
+
+
+===============================================================================
+== Version 1.7.7 (May 2016)
+===============================================================================
+
+- Added Korean Language (Thanks to Arthur)
+
+- Moved IPN function cryptobox_new_payment(...) in separate file cryptobox.newpayment.php
+
+
+
+===============================================================================
+== Version 1.7.6 (March 2016)
+===============================================================================
+
+- Added Portuguese Language (Thanks to Miguel)
+
+- Several new enhancements
+
+
+
+===============================================================================
+== Version 1.7.5 (January 2016)
+===============================================================================
+
+- Added German Language (Thanks to Sebastian, Julius)
+
+- Added Persian Language (Thanks to Kaveh, Ali-Mehdi)
+
+- Supporting Right-to-Left Languages
+
+
+
+===============================================================================
+== Version 1.7.4 (December 2015)
+===============================================================================
+
+- Added Dutch Language (Thanks to Erik)
+
+- Several new enhancements 

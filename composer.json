@@ -1,0 +1,68 @@
+{
+    "name": "victorybiz/laravel-crypto-payment-gateway",
+    "description": "GoUrl Crypto Payment Gateway for Laravel",
+    "keywords": [
+        "victorybiz",
+        "laravel-crypto-payment-gateway",
+        "laravel-bitcoin-payment-gateway",
+        "cryptoapi",
+        "cryptocurrency",
+        "cryptocurrency-payment",
+        "crypto-payment-gateway",
+        "bitcoin-payment-gateway",
+        "payment-gateway",
+        "laravel",
+        "payment",
+        "crypto",
+        "gourl-payment-gateway",
+        "gourl.io",
+        "gourl"
+    ],
+    "homepage": "https://github.com/victorybiz/laravel-crypto-payment-gateway",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Victory Osayi Airuoyuwa",
+            "email": "lavictorybiz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0",
+        "tecnickcom/tc-lib-barcode": "^1.15"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Victorybiz\\LaravelCryptoPaymentGateway\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Victorybiz\\LaravelCryptoPaymentGateway\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Victorybiz\\LaravelCryptoPaymentGateway\\LaravelCryptoPaymentGatewayServiceProvider"
+            ],
+            "aliases": {
+                "LaravelCryptoPaymentGateway": "Victorybiz\\LaravelCryptoPaymentGateway\\LaravelCryptoPaymentGatewayFacade"
+            }
+        }
+    }
+}
