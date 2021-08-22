@@ -167,6 +167,7 @@ class LaravelCryptoPaymentGateway
     public static function startPaymentSession($options)
     {
         $payment_session_id = \Illuminate\Support\Str::uuid()->toString();
+        $payment_session_id = hash("sha512", $payment_session_id);
         // save to session
         session(["paymentbox_{$payment_session_id}" => $options]);
 
