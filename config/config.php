@@ -7,12 +7,14 @@
  */
 return [
     /**
-     * Box Style
+     * Box Template
+     * 
      * 1. 'compact' (default)
      * 2. 'standard'
-     * 3. 'gourl-bootstrap'
+     * 3. 'gourl-cryptobox-iframe'
+     * 4. 'gourl-cryptobox-bootstrap'
      */
-    'box_style' => 'compact',
+    'box_template' => 'compact',
 
     /**
      * Hook IPN (Instant payment notification) to the following static class method.
@@ -135,7 +137,7 @@ return [
     /**
      * Relative logo path
      */
-    'logo' => 'vendor/laravel-crypto-payment-gateway/images/logo.png',
+    'logo' => 'vendor/laravel-crypto-payment-gateway/images/your_logo.png',
 
     /**
      * Show logo on payment page
@@ -147,9 +149,39 @@ return [
      */
     'show_language_box' => true,
 
+    /**
+     * Box template configurable options
+     */
+    'box_template_options' => [
+        'compact' => [
+            // no configurable options
+        ],
+        'standard' => [
+            // no configurable options
+        ],
+        'gourl_cryptobox_iframe' => [
+            'submit_btn' => true,
+            'width' => '540',
+            'height' => '230',
+            'box_style' => '',
+            'message_style' => '',
+            'anchor' => '',
+            // See display_cryptobox() in https://github.com/cryptoapi/Payment-Gateway/blob/master/lib/cryptobox.class.php for details
+        ],
+        'gourl_cryptobox_bootstrap' => [
+            'custom_text' => null,
+            'coin_image_size' => 70,
+            'qrcode_size' => 200,
+            'result_img_path' => 'default',
+            'result_img_size' => 250,
+            'method' => 'curl', // curl or ajax
+            'debug' => false,
+            // See display_cryptobox_bootstrap() in https://github.com/cryptoapi/Payment-Gateway/blob/master/lib/cryptobox.class.php for details
+        ],
+    ],
 
     /**
-     * optional, gourl affiliate key
+     * GoUrl affiliate key
      */
     'webdev_key' => env('GOURL_WEBDEV_KEY', ''),
 ];

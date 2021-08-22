@@ -26,7 +26,8 @@ class LaravelCryptoPaymentGateway
     public $defaultCoin = 'bitcoin';
     public $localisation = [];
     public $defaultLanguage = 'en';
-    public $boxStyle = 'compact';
+    public $boxTemplate = 'compact';
+    public $boxTemplateOptions = [];
     public $logo = '';
     public $showLogo = '';
     public $showLanguageBox = '';
@@ -67,8 +68,11 @@ class LaravelCryptoPaymentGateway
         $this->localisation = json_decode(CRYPTOBOX_LOCALISATION, true);        
         // Default language
         $this->defaultLanguage = app()->getLocale();
-        // Box style
-        $this->boxStyle = config('laravel-crypto-payment-gateway.box_style');
+        // Box Template
+        $this->boxTemplate = config('laravel-crypto-payment-gateway.box_template');
+        // Box Template Options
+        $this->boxTemplateOptions = config('laravel-crypto-payment-gateway.box_template_options');
+
         // Logo
         $this->logo = config('laravel-crypto-payment-gateway.logo');
         // Show logo

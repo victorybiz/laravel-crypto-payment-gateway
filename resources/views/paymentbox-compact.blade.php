@@ -27,23 +27,25 @@
       @if($laravelCryptoPaymentGateway->showLogo)
         <img class="w-auto h-12 mx-auto" src="{{ asset($laravelCryptoPaymentGateway->logo) }}" alt="{{ asset($laravelCryptoPaymentGateway->logo) }}">
       @endif
-            
-      <div class="mt-4 text-center">
-        {{-- Custim currency box --}}
-        <span class="block mt-1 mb-2 font-bold">{!! $localisation["payment"] !!}</span>
-        @if(is_array($laravelCryptoPaymentGateway->enabledCoinImages) && count($laravelCryptoPaymentGateway->enabledCoinImages) > 1)
-          @foreach($laravelCryptoPaymentGateway->enabledCoinImages as $coin => $imageData)
-            <a
-              href="?{{ $queryStrings ? $queryStrings.'&' : '' }}coin={{ $coin }}"
-              x-data="{ tooltip: '{{ addslashes(str_replace("%coinName%", ucfirst($coin), $localisation["pay_in"])) }}' }"
-              x-tooltip="tooltip"
-              class="inline-block p-1 border hover:border-gray-400 {{ request()->query('coin') == $coin ? 'border rounded border-gray-800' : '' }}"
-            >
-              <img class="h-14" src="data:image/png;base64,{{ $imageData }}" alt="{{ addslashes(str_replace("%coinName%", ucfirst($coin), $localisation["pay_in"])) }}">
-            </a>
-          @endforeach
-        @endif
-      </div>
+      
+      @if(!$boxIsPaid)
+        <div class="mt-4 text-center">
+          {{-- Custim currency box --}}
+          <span class="block mt-1 mb-2 font-bold">{!! $localisation["payment"] !!}</span>
+          @if(is_array($laravelCryptoPaymentGateway->enabledCoinImages) && count($laravelCryptoPaymentGateway->enabledCoinImages) > 1)
+            @foreach($laravelCryptoPaymentGateway->enabledCoinImages as $coin => $imageData)
+              <a
+                href="?{{ $queryStrings ? $queryStrings.'&' : '' }}coin={{ $coin }}"
+                x-data="{ tooltip: '{{ addslashes(str_replace("%coinName%", ucfirst($coin), $localisation["pay_in"])) }}' }"
+                x-tooltip="tooltip"
+                class="inline-block p-1 border hover:border-gray-400 {{ request()->query('coin') == $coin ? 'border rounded border-gray-800' : '' }}"
+              >
+                <img class="h-14" src="data:image/png;base64,{{ $imageData }}" alt="{{ addslashes(str_replace("%coinName%", ucfirst($coin), $localisation["pay_in"])) }}">
+              </a>
+            @endforeach
+          @endif
+        </div>
+      @endif
 
       <h2 class="mt-6 text-3xl font-medium text-center text-gray-900">
           {{ $boxJsonValues['texts']['title'] }}

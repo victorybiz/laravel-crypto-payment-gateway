@@ -6,22 +6,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/victorybiz/laravel-crypto-payment-gateway.svg?style=flat-square)](https://packagist.org/packages/victorybiz/laravel-crypto-payment-gateway)
 ![GitHub Actions](https://github.com/victorybiz/laravel-crypto-payment-gateway/actions/workflows/main.yml/badge.svg)
 
-### DEMO PREVIEW
-1. Payment Not Received (Awaiting Payment)
    
-![preview](https://github.com/victorybiz/laravel-crypto-payment-gateway/raw/main/demo.gif) 
-
-2. Payment Received (Correct Amount)
-   
-![preview](https://github.com/victorybiz/laravel-crypto-payment-gateway/raw/main/demo2.gif) 
-
-3. Payment Received (Unrecognized)
-   
-![preview](https://github.com/victorybiz/laravel-crypto-payment-gateway/raw/main/demo3.gif) 
+![preview](https://github.com/victorybiz/laravel-crypto-payment-gateway/raw/main/demo.png) 
 
 ## Table of Contents
 - [Laravel Crypto Payment Gateway](#laravel-crypto-payment-gateway)
-    - [DEMO PREVIEW](#demo-preview)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Requirements](#requirements)
@@ -81,7 +70,7 @@ This package is create a laravel wrapper on the [GoUrl.io](https://gourl.io)'s [
 <a name="core-dependencies"></a>
 
 ### Dependencies
-The `compact` and `standard` box style uses **Alpinejs** and **TailwindCSS**. While the `gourl-boostrap` uses assets provided by [GoUrl.io](https://gourl.io). You do not need to install any of the dependencies, the package uses the CDN version of dependencies.
+The `compact` and `standard` box template uses **Alpinejs** and **TailwindCSS**. While the `gourl-cryptobox-iframe` and `gourl-cryptobox-boostrap` uses assets provided by [GoUrl.io](https://gourl.io). You do not need to install any of the dependencies, the package uses the CDN version of dependencies.
 
 <a name="configuration"></a>
 
@@ -120,7 +109,7 @@ GOURL_PAYMENTBOX_BITCOINCASH_PRIVATE_KEY
 ```
 
 #### Config Options
-See the published `config/laravel-crypto-payment-gateway.php` for available options to customize the payment box like changing logo and box style. 
+See the published `config/laravel-crypto-payment-gateway.php` for available options to customize the payment box like changing `logo`, `box_template`, `box_template_options` and other configuration options.
 
 <a name="usage"></a>
 
@@ -381,14 +370,15 @@ $payment_history = $cryptobox->payment_history($boxID = "", $orderID = "", $user
 <a name="testing"></a>
 
 ## Resources
+The following packages was put together to makeup this seamless package.
 * [GoUrl.io Website](https://gourl.io)
 * [GoUrl.io's CryptoAPI Payment Gateway Repository](https://github.com/cryptoapi/Payment-Gateway)
 * [PHP Class API Doc](https://gourl.io/api-php.html)
-* [TailwindCSS](tailwindcss.com/) used on `compact` and `standard` box style.
-* [AlpineJS](https://alpinejs.dev) used on `compact` and `standard` box style.
-* [Alpine Clipboard](https://github.com/ryangjchandler/alpine-clipboard) used on `compact` and `standard` box style.
-* [Alpine Tooltip](https://github.com/ryangjchandler/alpine-tooltip) used on `compact` and `standard` box style.
-* [tc-lib-barcode](https://github.com/tecnickcom/tc-lib-barcode) used on `compact` and `standard` box style.
+* [TailwindCSS](tailwindcss.com/)
+* [AlpineJS](https://alpinejs.dev)
+* [Alpine Clipboard](https://github.com/ryangjchandler/alpine-clipboard) 
+* [Alpine Tooltip](https://github.com/ryangjchandler/alpine-tooltip) 
+* [tc-lib-barcode](https://github.com/tecnickcom/tc-lib-barcode) 
   
 
 <a name="resources"></a>

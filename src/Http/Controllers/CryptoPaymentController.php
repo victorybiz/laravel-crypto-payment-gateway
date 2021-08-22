@@ -94,8 +94,8 @@ class CryptoPaymentController extends Controller
 
         // instantiate the barcode class
         $barcode = new \Com\Tecnick\Barcode\Barcode();
-        $bar_width = $laravelCryptoPaymentGateway->boxStyle == 'compact' || $laravelCryptoPaymentGateway->boxStyle == '' ? -2 : -4;
-        $bar_height = $laravelCryptoPaymentGateway->boxStyle == 'compact' || $laravelCryptoPaymentGateway->boxStyle == '' ? -2 : -4;
+        $bar_width = $laravelCryptoPaymentGateway->boxTemplate == 'compact' || $laravelCryptoPaymentGateway->boxTemplate == '' ? -2 : -4;
+        $bar_height = $laravelCryptoPaymentGateway->boxTemplate == 'compact' || $laravelCryptoPaymentGateway->boxTemplate == '' ? -2 : -4;
         $barcodeObj = $barcode->getBarcodeObj(
             'QRCODE,H',                     // barcode type and additional comma-separated parameters
             $boxJsonValues['wallet_url'],   // data string to encode
@@ -108,17 +108,31 @@ class CryptoPaymentController extends Controller
         $walletQRCode = $barcodeObj->getHtmlDiv(); // SOURCE OUTPUT:: getHtmlDiv(), getSvgCode() | IMAGE OUTPUT:: getPng(), getSvg(), getPngData
 
 
-        // Switch to the view based on the box style
-        if($laravelCryptoPaymentGateway->boxStyle == 'gourl-bootstrap') {
-            $view = 'paymentbox-gourl-bootstrap';
-        } elseif($laravelCryptoPaymentGateway->boxStyle == 'standard') {
+        // Switch to the view based on the box template
+        if($laravelCryptoPaymentGateway->boxTemplate == 'gourl-cryptobox-iframe') {
+            $view = 'paymentbox-gourl-cryptobox-iframe';
+            $box_template_options = $laravelCryptoPaymentGateway->boxTemplateOptions['gourl_cryptobox_iframe'];
+
+        } elseif($laravelCryptoPaymentGateway->boxTemplate == 'gourl-cryptobox-bootstrap') {
+            $view = 'paymentbox-gourl-cryptobox-bootstrap';
+            $box_template_options = $laravelCryptoPaymentGateway->boxTemplateOptions['gourl_cryptobox_bootstrap'];
+
+        } elseif($laravelCryptoPaymentGateway->boxTemplate == 'standard') {
             $view = 'paymentbox-standard';
+            $box_template_options = $laravelCryptoPaymentGateway->boxTemplateOptions['standard'];
+
         } else {
             $view = 'paymentbox-compact';
+            $box_template_options = $laravelCryptoPaymentGateway->boxTemplateOptions['compact'];
         }
-        
+
         return view("laravel-crypto-payment-gateway::{$view}")
-                ->with( compact('laravelCryptoPaymentGateway', 'box', 'boxJsonValues', 'boxIsPaid', 'walletQRCode', 'queryStrings', 'localisation') );
+                ->with( 
+                    compact(
+                        'laravelCryptoPaymentGateway', 'box', 'boxJsonValues', 'boxIsPaid', 
+                        'walletQRCode', 'queryStrings', 'localisation', 'box_template_options'
+                    ) 
+                );
     }
 
     /**

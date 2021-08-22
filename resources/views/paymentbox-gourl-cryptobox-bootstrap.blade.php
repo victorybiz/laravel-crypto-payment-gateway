@@ -20,9 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" crossorigin="anonymous"></script>
-    @isset($jsPath)
+    @isset($supportJsPath)
       <script>
-        {!! file_get_contents($jsPath) !!}
+        {!! file_get_contents($supportJsPath) !!}
       </script>
     @endisset
 
@@ -41,33 +41,22 @@
   <body>
 
     @php    
-      // Text above payment box
-      // $custom_text  = "<p class='lead'>";
-      // $custom_text .= __('Please contact support for resolution.');
-      // $custom_text .= "</p>";
-      $custom_text = "";
-
       $coins = $laravelCryptoPaymentGateway->enabledCoins;
       $def_coin = $laravelCryptoPaymentGateway->defaultCoin;
       $def_language = $laravelCryptoPaymentGateway->defaultLanguage;
-      $custom_text = $custom_text;
-      $coinImageSize = 70;
-      $qrcodeSize = 200;
+      $custom_text = $box_template_options['custom_text'] ?? "";
+      $coinImageSize = $box_template_options['coin_image_size'] ?? 70;
+      $qrcodeSize = $box_template_options['qrcode_size'] ?? 200;
       $show_languages = $laravelCryptoPaymentGateway->showLanguageBox;
       $logoimg_path = $laravelCryptoPaymentGateway->showLogo ? asset($laravelCryptoPaymentGateway->logo) : '';
-      $resultimg_path = "default";
-      $resultimgSize = 250;
+      $resultimg_path = $box_template_options['result_img_path'] ?? "default";
+      $resultimgSize = $box_template_options['result_img_size'] ?? 250;
       $redirect = $laravelCryptoPaymentGateway->redirect;
-      $method = "curl";
-      $debug = false;
+      $method = $box_template_options['method'] ?? "curl";
+      $debug = $box_template_options['debug'] ?? false;
       
       // Display payment box
       echo $box->display_cryptobox_bootstrap($coins, $def_coin, $def_language, $custom_text, $coinImageSize, $qrcodeSize, $show_languages, $logoimg_path, $resultimg_path, $resultimgSize, $redirect, $method, $debug);    
-
-      // You can setup method='curl' in function above and use code below on this webpage -
-      // if successful bitcoin payment received .... allow user to access your premium data/files/products, etc.
-      // if ($box->is_paid()) { ... your code here ... }
-
     @endphp
   
   </body>

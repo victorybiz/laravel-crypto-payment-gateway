@@ -50,10 +50,14 @@ class LaravelCryptoPaymentGatewayServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
-
-        \View::composer(['laravel-crypto-payment-gateway::paymentbox-gourl-*'], function ($view) {
-            $view->jsPath = __DIR__.'/cryptoapi_php/js/support.min.js';
+        
+        \View::composer(['laravel-crypto-payment-gateway::paymentbox-gourl-cryptobox-iframe'], function ($view) {
+            $view->cryptoboxJsPath = __DIR__.'/cryptoapi_php/js/cryptobox.min.js';
         });
+        \View::composer(['laravel-crypto-payment-gateway::paymentbox-gourl-cryptobox-bootstrap'], function ($view) {
+            $view->supportJsPath = __DIR__.'/cryptoapi_php/js/support.min.js';
+        });
+        
     }
 
     /**
