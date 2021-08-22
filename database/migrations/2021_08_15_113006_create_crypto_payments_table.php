@@ -17,7 +17,7 @@ class CreateCryptoPaymentsTable extends Migration
         // Source: https://github.com/cryptoapi/Payment-Gateway
 
         DB::statement("
-            CREATE TABLE `crypto_payments` (
+            CREATE TABLE IF NOT EXISTS `crypto_payments` (
                 `paymentID` bigint unsigned NOT NULL AUTO_INCREMENT,
                 `boxID` bigint unsigned NOT NULL DEFAULT '0',
                 `boxType` enum('paymentbox','captchabox') NOT NULL,
