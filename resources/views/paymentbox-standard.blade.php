@@ -301,26 +301,49 @@
             </div>          
           </div>
         </div>
-        {{-- <div class="m-4">
-          <a 
-            href=""
-            x-data="{ tooltip: '{{ addslashes($boxJsonValues['texts']['btn_wait_hint']) }}' }"
-            x-tooltip="tooltip"
-            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-            <i class="mt-1 mr-2 fas fa-angle-double-right"></i>
-            {{ __('Click Here if you have already sent :coinname', ['coinname' => $boxJsonValues['coinname']]) }}
-            <i class="mt-1 ml-2 fas fa-angle-double-right"></i>
-          </a>
-        </div> --}}
+
+        {{-- Submit Button --}}
+        @if(isset($box_template_options['submit_btn']) && $box_template_options['submit_btn'] == true)
+          <div class="m-4">
+            <a 
+              href="?{{ $queryStringsFull }}"
+              x-data="{ tooltip: '{{ addslashes($boxJsonValues['texts']['btn_wait_hint']) }}' }"
+              x-tooltip="tooltip"
+              class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+              <i class="mt-1 mr-2 fas fa-angle-double-right"></i>
+              {{ __('Click Here if you have already sent :coinname', ['coinname' => $boxJsonValues['coinname']]) }}
+              <i class="mt-1 ml-2 fas fa-angle-double-right"></i>
+            </a>
+          </div>
+        @endif
+
+        <div class="flex m-4 mt-3 space-y-0 text-center sm:space-x-4">
+          {{-- Cancel button --}}
+          @if($laravelCryptoPaymentGateway->showCancelButton && $laravelCryptoPaymentGateway->previous)
+            <div class="flex flex-1">
+              <div class="w-full {{ $laravelCryptoPaymentGateway->showLanguageBox ? 'text-left' : '' }}">
+                <a
+                  href="?{{ $queryStringsFull ? $queryStringsFull.'&' : '' }}cancel-payment={{ 'yes' }}"
+                  class="justify-center px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
+                  onclick="return confirm('{{ __('Cancel Payment?') }}')"
+                  >
+                  <i class="mt-1 mr-2 fas fa-angle-double-left"></i>
+                  {{ __('Cancel') }}
+                </a>
+              </div>
+            </div>
+          @endif
+          {{-- language box  --}}
+          @if($laravelCryptoPaymentGateway->showLanguageBox)
+            <div class="flex flex-1 mt-0">
+              <div class="w-full {{ $laravelCryptoPaymentGateway->showCancelButton && $laravelCryptoPaymentGateway->previous ? 'text-right' : '' }}">               
+                {!! display_language_box('en', 'cryptolang', true) !!}
+              </div>
+            </div>
+          @endif
+        </div>
         
-      </div>
-    @endif
-    
-    {{-- language box  --}}
-    @if($laravelCryptoPaymentGateway->showLanguageBox)
-      <div class="mt-4 text-center">
-        {!! display_language_box('en', 'cryptolang', true) !!}
       </div>
     @endif
     

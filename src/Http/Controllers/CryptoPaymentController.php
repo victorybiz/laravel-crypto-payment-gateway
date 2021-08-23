@@ -81,12 +81,19 @@ class CryptoPaymentController extends Controller
             die(__("Sorry, we couldn't complete your request. Please try again in a moment."));
         }
         
+        // Cancel payment
+        if ($request->query('cancel-payment') == 'yes' && $laravelCryptoPaymentGateway->previous) {
+            $box->cryptobox_reset();
+            return redirect()->to($laravelCryptoPaymentGateway->previous);
+        }
+        
         // Current Language
 		$lan = cryptobox_sellanguage($laravelCryptoPaymentGateway->defaultLanguage);
 		$localisation = $laravelCryptoPaymentGateway->localisation[$lan];
 
         // Querystrings formatting
         $queryStringsArr = $_GET;
+        $queryStringsFull = http_build_query($queryStringsArr);
         if (isset($queryStringsArr['coin'])) {
             unset($queryStringsArr['coin']);
         }
@@ -130,7 +137,7 @@ class CryptoPaymentController extends Controller
                 ->with( 
                     compact(
                         'laravelCryptoPaymentGateway', 'box', 'boxJsonValues', 'boxIsPaid', 
-                        'walletQRCode', 'queryStrings', 'localisation', 'box_template_options'
+                        'walletQRCode', 'queryStrings', 'queryStringsFull', 'localisation', 'box_template_options'
                     ) 
                 );
     }

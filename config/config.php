@@ -149,16 +149,21 @@ return [
      * Show language box on payment page
      */
     'show_language_box' => true,
+    
+    /**
+     * Show cancel button on payment page
+     */
+    'show_cancel_button' => true,
 
     /**
      * Box template configurable options
      */
     'box_template_options' => [
         'compact' => [
-            // no configurable options
+            'submit_btn' => false,
         ],
         'standard' => [
-            // no configurable options
+            'submit_btn' => false,
         ],
         'gourl_cryptobox_iframe' => [
             'submit_btn' => true,

@@ -29,9 +29,11 @@ class LaravelCryptoPaymentGateway
     public $boxTemplate = 'compact';
     public $boxTemplateOptions = [];
     public $logo = '';
-    public $showLogo = '';
-    public $showLanguageBox = '';
+    public $showLogo = true;
+    public $showLanguageBox = true;
     public $redirect = '';
+    public $previous = '';
+    public $showCancelButton = true;
 
     /**
      * The constructor.
@@ -79,6 +81,8 @@ class LaravelCryptoPaymentGateway
         $this->showLogo = config('laravel-crypto-payment-gateway.show_logo');
         // Show language box
         $this->showLanguageBox = config('laravel-crypto-payment-gateway.show_language_box');
+        // Show cancel button
+        $this->showCancelButton = config('laravel-crypto-payment-gateway.show_cancel_button');
     }
 
     /**
@@ -148,6 +152,9 @@ class LaravelCryptoPaymentGateway
         $this->redirect =  $options['redirect'] ?? '';
         unset($options['redirect']);
 
+        $this->previous =  $options['previous'] ?? '';
+        unset($options['previous']);
+
         $this->cryptobox = new \CryptoBox($options);
         return $this->cryptobox;
     }
@@ -169,6 +176,7 @@ class LaravelCryptoPaymentGateway
         $payment_session_id = \Illuminate\Support\Str::uuid()->toString();
         $payment_session_id = hash("sha512", $payment_session_id);
         // save to session
+        $options['previous'] = url()->previous();
         session(["paymentbox_{$payment_session_id}" => $options]);
 
         $paymentbox_url = action([\Victorybiz\LaravelCryptoPaymentGateway\Http\Controllers\CryptoPaymentController::class], ['cryptopsid' => $payment_session_id]);

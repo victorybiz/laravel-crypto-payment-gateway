@@ -58,6 +58,18 @@
       // Display payment box
       echo $box->display_cryptobox_bootstrap($coins, $def_coin, $def_language, $custom_text, $coinImageSize, $qrcodeSize, $show_languages, $logoimg_path, $resultimg_path, $resultimgSize, $redirect, $method, $debug);    
     @endphp
+
+    @if($laravelCryptoPaymentGateway->showCancelButton && $laravelCryptoPaymentGateway->previous)
+      <div class="text-center" style="margin-bottom: 2rem; margin-top: -3rem">
+        <a
+            href="?{{ $queryStringsFull ? $queryStringsFull.'&' : '' }}cancel-payment={{ 'yes' }}"
+            class="px-4 py-2 btn-light"
+            onclick="return confirm('{{ __('Cancel Payment?') }}')"
+            >
+            {{ __('Cancel') }}
+          </a>
+      </div>
+    @endif
   
   </body>
 </html>

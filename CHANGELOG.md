@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-crypto-payment-gateway` will be documented in this file
 
+## v1.1.0 - 2021-08-23
+
+- Added cancel button.
+
 ## v1.0.2 - 2021-08-22
 
 - Updated migration file.

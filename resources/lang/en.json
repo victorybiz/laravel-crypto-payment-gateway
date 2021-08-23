@@ -2,6 +2,8 @@
   "An incorrect bitcoin amount has been received": "An incorrect bitcoin amount has been received",
   "Click Here if you have already sent :coinname": "Click Here if you have already sent :coinname",
   "Close": "Close",
+  "Cancel": "Cancel",
+  "Cancel Payment?": "Cancel Payment?",
   "Please contact support for resolution.": "Please contact support for resolution.",
   "Request successful.": "Request successful.",
   "Sorry, we couldn't complete your request due to data mismatch. Please try making payment again.": "Sorry, we couldn't complete your request due to data mismatch. Please try making payment again.",
