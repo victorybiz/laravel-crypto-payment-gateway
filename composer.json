@@ -30,7 +30,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0",
+        "illuminate/support": "^8.0|^9.0",
         "tecnickcom/tc-lib-barcode": "^1.15"
     },
     "require-dev": {
